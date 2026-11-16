@@ -197,3 +197,5 @@ Do not treat a queued build as a successful release. Confirm the newest deployme
 - `/cards/:id` — a printing and the lists that include it
 
 Transactional mail setup and development capture: [Configure transactional email](docs/email.md).
+
+Google account entry points and reusable button: [Google sign-in](docs/google-sign-in.md).
