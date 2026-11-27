@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include AnalyticsTracking
   protect_from_forgery with: :exception
   
   def current_user

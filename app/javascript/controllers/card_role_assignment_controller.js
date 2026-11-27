@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { track } from "../analytics"
 
 export default class extends Controller {
   static values = { url: String }
@@ -65,6 +66,7 @@ export default class extends Controller {
       role.classList.add("is-assigned")
       role.setAttribute("aria-pressed", "true")
       role.querySelector(".card-role-status").textContent = "Assigned"
+      track("card_role_assigned", { role_id: role.dataset.roleId })
     } catch (_error) {
       role.querySelector(".card-role-status").textContent = "Try again"
     } finally {

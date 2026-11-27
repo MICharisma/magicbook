@@ -18,6 +18,8 @@ class Mage < ApplicationRecord
   has_many :sent_invitations, class_name: 'Invitation', foreign_key: :inviter_id, dependent: :destroy
   has_many :gifted_purchases, through: :received_invitations, source: :purchase
   has_many :gifted_books, through: :gifted_purchases, source: :books
+  has_many :ahoy_visits, class_name: "Ahoy::Visit", foreign_key: :user_id, dependent: :nullify
+  has_many :ahoy_events, class_name: "Ahoy::Event", foreign_key: :user_id, dependent: :nullify
 
   normalizes :username, with: ->(value) { value.to_s.strip.downcase.presence }
   normalizes :display_name, with: ->(value) { value.to_s.gsub(/[[:cntrl:]]/, '').strip.presence }

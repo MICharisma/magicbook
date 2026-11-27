@@ -3,6 +3,7 @@
   <head>
     <title>Ways We Mage<%= @html_title ? " - #{@html_title}" : '' %></title>
     <%= csrf_meta_tags %>
+    <%= tag.meta name: "app-analytics", content: analytics_context.to_json %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= google_analytics %>

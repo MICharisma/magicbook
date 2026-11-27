@@ -13,6 +13,7 @@ gem 'aws-sdk-s3', require: false
 gem 'sass-rails'
 gem 'jbuilder'
 gem 'turbo-rails'
+gem 'ahoy_matey', '~> 5.5'
 
 gem 'stripe'
 gem 'record_tag_helper'

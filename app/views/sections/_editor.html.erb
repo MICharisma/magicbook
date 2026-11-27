@@ -1,5 +1,5 @@
 <% section = section_table_of_content.section %>
-<%= turbo_frame_tag dom_id(section) do %>
+<%= turbo_frame_tag dom_id(section), data: { analytics_frame: "section_editor" } do %>
   <%= div_with_data_for section do %>
     <%= div_for section, :data_on do %>
       <%= section_control section_table_of_content %>
