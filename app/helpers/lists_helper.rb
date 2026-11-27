@@ -47,7 +47,7 @@ module ListsHelper
     if current_mage
       link_to 'Begin new list', new_list_path, :id => 'new_list_link'
     else
-      link_to 'Begin new list', '', :id => 'new_list_link', :data => {:confirm => 'If you have made a purchase, log in.  Otherwise, purchase a $2 book and you will be welcome to make lists!'}
+      link_to 'Begin new list', new_mage_session_path, :id => 'new_list_link'
     end
   end
   

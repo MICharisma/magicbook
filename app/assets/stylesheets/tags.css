@@ -1,0 +1,65 @@
+.tags-page .catalog-page-header h1 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.tag-index-group {
+  margin: 0 0 2rem;
+}
+
+.tag-index-group h2 {
+  align-items: center;
+  display: flex;
+  font-size: 1.15rem;
+  gap: .45rem;
+  margin: 0 0 .75rem;
+}
+
+.tag-index-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-use-count {
+  color: #705f4d;
+  font-family: Dosis, Arial, sans-serif;
+  font-size: .8rem;
+}
+
+.tag-show-section {
+  margin: 0 0 2rem;
+}
+
+.tag-entry-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-entry {
+  border-bottom: 1px solid #e2dce9;
+  padding: .85rem 0;
+}
+
+.tag-entry h3 {
+  font-family: Cabin, Arial, sans-serif;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.tag-entry p {
+  color: #705f4d;
+  font-family: Dosis, Arial, sans-serif;
+  margin: .2rem 0 0;
+}
+
+.tags-empty {
+  color: #705f4d;
+  font-family: Dosis, Arial, sans-serif;
+}

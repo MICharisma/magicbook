@@ -1,6 +1,117 @@
+<section class="font-preview">
+  <p class="font-preview-kicker">Live on the site — still loaded from GitHub, not copied into the app</p>
+  <h1 class="font-preview-title">Beleren</h1>
+  <p class="font-preview-lede">
+    Linked from
+    <%= link_to "regularwave/beleren-bold-woff2", "https://github.com/regularwave/beleren-bold-woff2", target: "_blank", rel: "noopener" %>
+    (woff2 of
+    <%= link_to "Saeris/typeface-beleren-bold", "https://github.com/Saeris/typeface-beleren-bold", target: "_blank", rel: "noopener" %>).
+    Unofficial fan webfonts; typeface © Wizards of the Coast.
+  </p>
+
+  <div class="font-preview-cuts">
+    <article>
+      <h2>Beleren Bold</h2>
+      <p class="beleren-bold">Lightning Bolt · Jace, the Mind Sculptor · Hobbit Characters</p>
+      <p class="beleren-bold">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+      <p class="beleren-bold">abcdefghijklmnopqrstuvwxyz 0123456789</p>
+    </article>
+    <article>
+      <h2>Beleren Small Caps</h2>
+      <p class="beleren-small-caps">Creature — Human Wizard · Instant · Legendary Planeswalker</p>
+      <p class="beleren-small-caps">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+      <p class="beleren-small-caps">abcdefghijklmnopqrstuvwxyz 0123456789</p>
+    </article>
+    <article>
+      <h2>Small Caps Italic</h2>
+      <p class="beleren-small-caps-italic">Flavor text and asides</p>
+      <p class="beleren-small-caps-italic">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+      <p class="beleren-small-caps-italic">abcdefghijklmnopqrstuvwxyz 0123456789</p>
+    </article>
+  </div>
+
+  <h2>On this site</h2>
+  <div class="font-preview-compare">
+    <article>
+      <h3>Now</h3>
+      <nav class="header_links font-preview-nav font-preview-nav-legacy">
+        <a>Free Chapter</a>
+        <a>Bookshelf</a>
+        <a>Lists</a>
+        <a>Sets</a>
+        <a>Functions</a>
+      </nav>
+      <p class="auth-kicker">Sign in</p>
+      <p class="font-preview-auth-heading">Welcome back</p>
+      <p class="font-preview-list-index"><a>Hobbit Characters</a></p>
+      <p class="font-preview-list-name">Hobbit Characters</p>
+      <p class="font-preview-item">1 · Bilbo Baggins</p>
+    </article>
+    <article>
+      <h3>Beleren</h3>
+      <nav class="header_links font-preview-nav beleren-bold">
+        <a>Free Chapter</a>
+        <a>Bookshelf</a>
+        <a>Lists</a>
+        <a>Sets</a>
+        <a>Functions</a>
+      </nav>
+      <p class="auth-kicker beleren-small-caps">Sign in</p>
+      <p class="font-preview-auth-heading beleren-bold">Welcome back</p>
+      <p class="font-preview-list-index beleren-bold"><a>Hobbit Characters</a></p>
+      <p class="font-preview-list-name beleren-bold">Hobbit Characters</p>
+      <p class="font-preview-item beleren-bold">1 · Bilbo Baggins</p>
+    </article>
+    <article>
+      <h3>Fondamento</h3>
+      <nav class="header_links font-preview-nav fondamento">
+        <a>Free Chapter</a>
+        <a>Bookshelf</a>
+        <a>Lists</a>
+        <a>Sets</a>
+        <a>Functions</a>
+      </nav>
+      <p class="auth-kicker fondamento">Sign in</p>
+      <p class="font-preview-auth-heading fondamento">Welcome back</p>
+      <p class="font-preview-list-index fondamento"><a>Hobbit Characters</a></p>
+      <p class="font-preview-list-name fondamento">Hobbit Characters</p>
+      <p class="font-preview-item fondamento">1 · Bilbo Baggins</p>
+    </article>
+  </div>
+</section>
+
+<section class="font-preview">
+  <p class="font-preview-kicker">Already on the site — Google Fonts</p>
+  <h1 class="font-preview-title fondamento">Fondamento</h1>
+  <p class="font-preview-lede">
+    Calligraphic book face. Chapter titles already use it. Regular and italic from
+    <%= link_to "Google Fonts", "https://fonts.google.com/specimen/Fondamento", target: "_blank", rel: "noopener" %>.
+  </p>
+
+  <div class="font-preview-cuts">
+    <article>
+      <h2>Regular</h2>
+      <p class="fondamento">Lightning Bolt · Jace, the Mind Sculptor · Hobbit Characters</p>
+      <p class="fondamento">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+      <p class="fondamento">abcdefghijklmnopqrstuvwxyz 0123456789</p>
+    </article>
+    <article>
+      <h2>Italic</h2>
+      <p class="fondamento-italic">Creature — Human Wizard · Instant · Legendary Planeswalker</p>
+      <p class="fondamento-italic">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+      <p class="fondamento-italic">abcdefghijklmnopqrstuvwxyz 0123456789</p>
+    </article>
+    <article>
+      <h2>As a chapter title</h2>
+      <p class="fondamento font-preview-chapter">The Council of Elrond</p>
+      <p class="fondamento-italic">A free chapter from the featured book</p>
+    </article>
+  </div>
+</section>
+
 <% selected_fonts.each do |font| %>
   <div style="font-family: '<%= font %>';">
-    <%= font %>: = >   
+    <%= font %>: = >
     Pappolidge farnicola est bard rardote ramplingtosh beringe.. frest!
   </div>
   <%= tag.br %>

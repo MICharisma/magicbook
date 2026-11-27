@@ -6,7 +6,7 @@ The card catalog deliberately models the information needed by this applicationâ
 
 ## Stack
 
-- Ruby 4.0.5 and Rails 8.1
+- Ruby 4.0.9 and Rails 8.1
 - PostgreSQL
 - Sprockets/Sass, CoffeeScript, Turbolinks, and jQuery
 - Devise for authentication and CanCanCan for authorization

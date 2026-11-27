@@ -44,6 +44,7 @@ RSpec.describe ListedItemsHelper, type: :helper do
     expect(html).to include('data-turbo-method="put"')
     expect(html).to include('data-turbo-stream="true"')
     expect(html).to include('data-controller="tagging-disclosure"')
+    expect(html).to include('listed_item_heading')
     expect(html).to include('aria-label="Tags"')
     expect(html).to include('tagging-disclosure-panel hidden')
     expect(html).to match(%r{/assets/tag[-.]})

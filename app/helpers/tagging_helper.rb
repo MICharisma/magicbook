@@ -92,6 +92,13 @@ module TaggingHelper
     tag.tag_context ? "#{tag.tag_context.name}: #{tag.name}" : tag.name
   end
 
+  def tag_chip_inner(tag)
+    parts = []
+    parts << content_tag(:span, tag.tag_context.name, class: "tagging-chip-context") if tag.tag_context
+    parts << content_tag(:span, tag.name, class: "tagging-chip-name")
+    safe_join(parts)
+  end
+
   def resolved_tag_style_color(tag_context)
     return unless tag_context
 

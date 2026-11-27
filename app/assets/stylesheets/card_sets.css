@@ -10,8 +10,8 @@
 .catalog-page h1,
 .catalog-page h2 {
   color: #34291d;
-  font-family: Cinzel, Georgia, serif;
-  font-weight: 500;
+  font-family: var(--display-font);
+  font-weight: bold;
 }
 
 .catalog-page h1 {
@@ -239,8 +239,9 @@
 }
 
 .card-role-name {
-  font-family: Cinzel, Georgia, serif;
+  font-family: var(--display-font);
   font-size: 1.05rem;
+  font-weight: bold;
 }
 
 .card-role-status {

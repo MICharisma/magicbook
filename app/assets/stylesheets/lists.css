@@ -6,7 +6,8 @@
   margin-bottom: 19px;
   padding: 0 1%;
   font-size: 2em;
-  font-family: Antic;
+  font-family: var(--display-font);
+  font-weight: bold;
 }
 
 #lists div.list.two {
@@ -91,7 +92,9 @@
 
 .list .name_of_list {
   text-align: center;
+  font-family: var(--display-font);
   font-size: 2.4em;
+  font-weight: bold;
   padding: 9px;
   border-radius: 28px;
   box-shadow: 0px 10px 25px #888888;
@@ -174,15 +177,34 @@
   border-bottom: none;
 }
 
+.list .listed_item .listed_item_heading {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .55rem;
+}
+
 .list .listed_item .number_of_listed_item {
   display: inline-block;
-  padding-right: 14px;
+  flex: 0 0 auto;
+  padding-right: 0;
 }
 
 .list .listed_item .designation_of_listed_item {
-  display: inline-block;
-  width: 94%;
+  display: block;
+  flex: 1 1 8rem;
+  font-family: var(--display-font);
   font-size: 1.3em;
+  font-weight: bold;
+  min-width: 0;
+  width: auto;
+}
+
+.list .listed_item .tagging {
+  flex: 0 1 auto;
+  justify-content: flex-end;
+  margin: 0 0 0 auto;
+  max-width: 100%;
 }
 
 .list .listed_item .editing_tools_for_listed_item {
@@ -196,10 +218,6 @@
 .list .listed_item:hover .footer_of_listed_item {
   opacity: 0.4;
   transition: opacity 10s;
-}
-
-.list .listed_item .tagging {
-  margin: .2rem 0 .55rem;
 }
 
 .list .listed_item .expression_of_listed_item .card {

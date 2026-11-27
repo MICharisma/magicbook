@@ -1,3 +1,7 @@
+:root {
+  --display-font: "Beleren Bold", Cinzel, Georgia, serif;
+}
+
 #logo_holder {
   text-align: center;
   clear: both;
@@ -41,7 +45,8 @@
 
 .footer_links, .header_links {
   margin: 4% 4%;
-  font-family: Cinzel;
+  font-family: var(--display-font);
+  font-weight: bold;
   text-align: center;
 }
 

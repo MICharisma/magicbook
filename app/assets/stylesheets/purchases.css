@@ -1,5 +1,6 @@
 #my_purchases_link {
-  font-family: Cinzel;
+  font-family: var(--display-font);
+  font-weight: bold;
   text-align: center;
 }
 

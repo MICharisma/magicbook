@@ -3,10 +3,9 @@
     <ul class="tagging-chips">
       <% taggings.sort_by { |tagging| [tagging.tag.tag_context&.name.to_s, tagging.tag.name] }.each do |tagging| %>
         <%= tag.li class: ["tagging-chip", ("is-styled" if tagging.tag.tag_context)], style: tag_style_css(tagging.tag.tag_context) do %>
-          <% if tagging.tag.tag_context %>
-            <span class="tagging-chip-context"><%= tagging.tag.tag_context.name %></span>
+          <%= link_to tag_path(tagging.tag), class: "tagging-chip-link" do %>
+            <%= tag_chip_inner(tagging.tag) %>
           <% end %>
-          <span class="tagging-chip-name"><%= tagging.tag.name %></span>
           <% if editable %>
             <%= button_to "×", admin_tagging_path(tagging),
               method: :delete,

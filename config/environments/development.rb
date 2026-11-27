@@ -11,9 +11,10 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  # Show full error reports.
-  config.consider_all_requests_local = true
+  # Only local requests may see detailed errors; this app also has a public development URL.
+  config.consider_all_requests_local = false
   config.hosts << "dev.wayswemage.com"
+  config.hosts << "build.wayswemage.com"
   config.hosts << "magicbook.test"
 
   # Enable/disable caching. By default caching is disabled.

@@ -1,0 +1,31 @@
+<main class="catalog-page tags-page">
+  <header class="catalog-page-header">
+    <p class="catalog-kicker">List taxonomy</p>
+    <h1>Tags</h1>
+    <p>Browse lists and items by tag. Open a tag to see everything that currently carries it.</p>
+  </header>
+
+  <% if @unstyled_tags.none? && @tag_contexts.all? { |tag_context| tag_context.tags.none? } %>
+    <p class="tags-empty">No tags yet.</p>
+  <% else %>
+    <% if @unstyled_tags.any? %>
+      <section class="tag-index-group">
+        <h2>No style</h2>
+        <%= render "tags/chip_list", tags: @unstyled_tags, counts: @counts %>
+      </section>
+    <% end %>
+
+    <% @tag_contexts.each do |tag_context| %>
+      <% tags = tag_context.tags.sort_by(&:name) %>
+      <% next if tags.none? %>
+
+      <section class="tag-index-group is-styled" style="<%= tag_style_css(tag_context) %>">
+        <h2>
+          <span class="tag-style-swatch"></span>
+          <%= tag_context.name %>
+        </h2>
+        <%= render "tags/chip_list", tags: tags, counts: @counts %>
+      </section>
+    <% end %>
+  <% end %>
+</main>

@@ -1,0 +1,43 @@
+<main class="catalog-page tags-page">
+  <%= link_to "← All tags", tags_path, class: "catalog-back-link" %>
+
+  <header class="catalog-page-header">
+    <p class="catalog-kicker"><%= @tag.tag_context ? @tag.tag_context.name : "No style" %></p>
+    <h1><%= @tag.name %></h1>
+  </header>
+
+  <section class="tag-show-section">
+    <h2 class="catalog-result-heading"><%= pluralize(@listed_items.total_count, "tagged item") %></h2>
+    <% if @listed_items.any? %>
+      <ul class="tag-entry-list">
+        <% @listed_items.each do |listed_item| %>
+          <li class="tag-entry">
+            <h3>
+              <%= link_to listed_item.plaintext_name.presence || "Untitled item",
+                list_path(listed_item.list, anchor: dom_id(listed_item), item: listed_item.url_name) %>
+            </h3>
+            <p>in <%= link_to listed_item.list.name, listed_item.list %></p>
+          </li>
+        <% end %>
+      </ul>
+      <%= paginate @listed_items %>
+    <% else %>
+      <p class="tags-empty">No visible items carry this tag.</p>
+    <% end %>
+  </section>
+
+  <section class="tag-show-section">
+    <h2 class="catalog-result-heading"><%= pluralize(@lists.size, "tagged list") %></h2>
+    <% if @lists.any? %>
+      <ul class="tag-entry-list">
+        <% @lists.each do |list| %>
+          <li class="tag-entry">
+            <h3><%= link_to list.name, list %></h3>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="tags-empty">No visible lists carry this tag.</p>
+    <% end %>
+  </section>
+</main>

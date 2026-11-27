@@ -82,15 +82,18 @@ module ListedItemsHelper
   
   def listed_item_display listed_item
     turbo_frame_tag dom_id(listed_item), :class => 'listed_item' do
-      if listed_item.list.mode == 'numbered'
-        div_for listed_item, :number_of do
-          listed_item.ordering.to_s
-        end
-      else
-        ''.html_safe
-      end +
-      div_for(listed_item, :designation_of) do
-        mark_up listed_item.designation
+      content_tag(:div, class: "listed_item_heading") do
+        if listed_item.list.mode == "numbered"
+          div_for listed_item, :number_of do
+            listed_item.ordering.to_s
+          end
+        else
+          "".html_safe
+        end +
+        div_for(listed_item, :designation_of) do
+          mark_up listed_item.designation
+        end +
+        tagging_for(listed_item).to_s.html_safe
       end +
       div_for(listed_item, :expression_of) do
         listed_item.cards.map do |card|
@@ -99,7 +102,6 @@ module ListedItemsHelper
         mark_up(listed_item.expression)
       end +
       clearboth +
-      tagging_for(listed_item).to_s.html_safe +
       if listed_item.content.present?
         case listed_item.content
         when List

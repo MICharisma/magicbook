@@ -30,7 +30,10 @@ RSpec.describe TaggingHelper, type: :helper do
 
     html = helper.apply_existing_tag_to(list).to_s
 
-    expect(html).to include("Apply an existing tag", "Format: Commander", "Flags: AI generated")
+    expect(html).to include("Format", "Commander", "Flags", "AI generated")
+    expect(html).to include("tagging-chip-context", "tagging-chip-name")
+    expect(html).not_to include("Apply an existing tag")
+    expect(html).not_to include("Find a tag")
     expect(html).to include("data-controller=\"apply-existing-tag\"")
     expect(html).to include("data-turbo=\"true\"")
     expect(html).to include("data-turbo-frame=\"_top\"")
@@ -65,7 +68,8 @@ RSpec.describe TaggingHelper, type: :helper do
     apply_html = helper.apply_existing_tag_to(owned_list).to_s
     create_html = helper.create_tag_for(owned_list).to_s
 
-    expect(apply_html).to include("Apply an existing tag", "Format: Commander")
+    expect(apply_html).to include("Format", "Commander", "tagging-chip-context")
+    expect(apply_html).not_to include("Apply an existing tag")
     expect(apply_html).not_to include("AI generated")
     expect(create_html).to include("Add tag", "Choose a style", "No style")
     expect(create_html).to include("Format")
@@ -76,7 +80,7 @@ RSpec.describe TaggingHelper, type: :helper do
     listed_item = owned_list.listed_items.create!(designation: "A card")
     allow(helper).to receive(:current_mage).and_return(reader)
 
-    expect(helper.apply_existing_tag_to(listed_item).to_s).to include("Apply an existing tag")
+    expect(helper.apply_existing_tag_to(listed_item).to_s).to include("tagging-chip-context", "Commander")
     expect(helper.create_tag_for(listed_item).to_s).to include("Add tag")
   end
 
@@ -106,7 +110,7 @@ RSpec.describe TaggingHelper, type: :helper do
     html = helper.tagging_for(list).to_s
     hidden_at = html.index("tagging-disclosure-panel hidden")
 
-    expect(html).to include("Commander", "tagging-chip", "Add tag")
+    expect(html).to include("Commander", "tagging-chip", "Add tag", tag_path(tag))
     expect(html.index("tagging-applied")).to be < hidden_at
     expect(html.index("Commander")).to be < hidden_at
     expect(html[hidden_at..]).to include("Add tag")
@@ -127,6 +131,19 @@ RSpec.describe TaggingHelper, type: :helper do
     expect(html).not_to include("tagging-applied")
   end
 
+  it "keeps extra existing tags behind More until they are asked for" do
+    8.times { |index| context.tags.create!(name: "Extra #{index}", slug: "extra-#{index}", kind: "user") }
+    allow(helper).to receive(:current_mage).and_return(admin)
+
+    html = helper.apply_existing_tag_to(list).to_s
+
+    expect(html).to include("data-apply-existing-tag-limit-value=\"8\"")
+    expect(html).to include("data-apply-existing-tag-target=\"more\"")
+    expect(html).to include("aria-label=\"Filter tags\"")
+    expect(html).not_to include("Apply an existing tag")
+    expect(html).not_to include("Find a tag")
+  end
+
   it "colors styled chips from the style, with a viewer override" do
     context.update!(color: "#3d6b5a")
     list.taggings.create!(tag: tag, mage: admin)
@@ -136,6 +153,7 @@ RSpec.describe TaggingHelper, type: :helper do
     expect(html).to include("tagging-chip")
     expect(html).to include("is-styled")
     expect(html).to include("--tag-color: #3d6b5a")
+    expect(html).to include(tag_path(tag))
 
     reader.tag_context_color_overrides.create!(tag_context: context, color: "#8a4a32")
     html = helper.applied_tags_for(list).to_s

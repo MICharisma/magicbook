@@ -38,8 +38,9 @@
 }
 
 .function-card h2 {
-  font-family: Cinzel, Georgia, serif;
+  font-family: var(--display-font);
   font-size: 1.2rem;
+  font-weight: bold;
   margin: 0 0 .5rem;
 }
 

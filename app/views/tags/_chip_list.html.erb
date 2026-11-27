@@ -1,0 +1,10 @@
+<ul class="tag-index-chips">
+  <% tags.each do |tag| %>
+    <li>
+      <%= link_to tag_path(tag), class: ["tagging-chip", "tagging-chip-link", ("is-styled" if tag.tag_context)], style: tag_style_css(tag.tag_context) do %>
+        <%= tag_chip_inner(tag) %>
+        <span class="tag-use-count"><%= counts.fetch(tag.id, 0) %></span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -116,6 +116,7 @@ Rails.application.routes.draw do
   end
   resources :card_sets, :only => [:index, :show], :param => :code
   resources :card_functions, only: [:index, :show], param: :slug
+  resources :tags, only: [:index, :show]
   
   get '/privacy' => 'landings#privacy', :as => 'privacy_policy'
   get '/data_deletion' => 'landings#data_deletion', :as => 'data_deletion'

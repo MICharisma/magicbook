@@ -16,12 +16,14 @@ module ApplicationHelper
         link_to('Free Chapter', free_book_chapters_path(Book.featured)) +
         link_to('Bookshelf', books_path, :class => 'bookshelf') +
         link_to('Lists', lists_path, :class => 'bookshelf') +
+        link_to('Tags', tags_path, :class => 'bookshelf') +
         link_to('Sets', card_sets_path, :class => 'bookshelf') +
         link_to('Functions', card_functions_path, :class => 'bookshelf')
       else
         link_to('Free Chapter', free_book_chapters_path(Book.featured)) +
         link_to('Bookshelf', books_path, :class => 'bookshelf') +
         link_to('Lists', lists_path, :class => 'bookshelf') +
+        link_to('Tags', tags_path, :class => 'bookshelf') +
         link_to('Sets', card_sets_path, :class => 'bookshelf') +
         link_to('Functions', card_functions_path, :class => 'bookshelf')
       end
@@ -101,10 +103,17 @@ module ApplicationHelper
     tag.script :src => 'https://sites.google.com/site/themunsonsapps/mtg/autocard.js'
   end
   
+  BELEREN_STYLESHEET = "https://cdn.jsdelivr.net/gh/regularwave/beleren-bold-woff2@main/css/beleren-bold-w2.css".freeze
+
   def google_fonts
     '<link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100&family=Antic&family=Anton&family=Cabin:wght@400;500;600;700&family=Changa:wght@300&family=Cinzel:wght@400;500;600&family=Crushed&family=Dosis:wght@300;400;500&family=Fondamento&family=Jaldi&family=Josefin+Sans:wght@300&family=Noto+Sans:wght@200&family=Righteous&family=Syncopate&display=swap" rel="stylesheet">'.html_safe
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100&family=Antic&family=Anton&family=Cabin:wght@400;500;600;700&family=Changa:wght@300&family=Cinzel:wght@400;500;600&family=Crushed&family=Dosis:wght@300;400;500&family=Fondamento:ital@0;1&family=Jaldi&family=Josefin+Sans:wght@300&family=Noto+Sans:wght@200&family=Righteous&family=Syncopate&display=swap" rel="stylesheet">'.html_safe
+  end
+
+  def beleren_font_stylesheet
+    tag.link(rel: "preconnect", href: "https://cdn.jsdelivr.net", crossorigin: true) +
+      tag.link(rel: "stylesheet", href: BELEREN_STYLESHEET)
   end
   
   def selected_fonts

@@ -34,7 +34,8 @@ RSpec.describe "Admin tagging", type: :request do
     get list_path(list)
 
     expect(response).to have_http_status(:ok)
-    expect(response.body).to include("Apply an existing tag", "Add tag", "AI generated")
+    expect(response.body).to include("data-controller=\"apply-existing-tag\"", "Add tag", "AI generated")
+    expect(response.body).not_to include("Apply an existing tag")
   end
 
   it "shows tagging helpers on a list for the owner" do
@@ -51,7 +52,8 @@ RSpec.describe "Admin tagging", type: :request do
     get list_path(owned_list)
 
     expect(response).to have_http_status(:ok)
-    expect(response.body).to include("Apply an existing tag", "Add tag", "Commander")
+    expect(response.body).to include("data-controller=\"apply-existing-tag\"", "Add tag", "Commander")
+    expect(response.body).not_to include("Apply an existing tag")
     expect(response.body).not_to include("AI generated")
   end
 

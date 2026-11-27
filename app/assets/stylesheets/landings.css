@@ -59,3 +59,155 @@
 .policy .privacy section {
   padding: 2em;
 }
+
+.beleren-bold {
+  font-family: "Beleren Bold", Cinzel, Georgia, serif;
+  font-weight: bold;
+}
+
+.beleren-small-caps {
+  font-family: "Beleren SmallCaps Bold", Cinzel, Georgia, serif;
+  font-weight: bold;
+}
+
+.beleren-small-caps-italic {
+  font-family: "Beleren SmallCaps BoldItalic", Cinzel, Georgia, serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.fondamento {
+  font-family: Fondamento, Georgia, serif;
+  font-weight: 400;
+}
+
+.fondamento-italic {
+  font-family: Fondamento, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-preview {
+  color: #29251f;
+  font-family: Cabin, Arial, sans-serif;
+  margin: 2rem auto 3rem;
+  max-width: 64rem;
+  padding: 0 1.25rem;
+}
+
+.font-preview-kicker {
+  color: #765838;
+  font-family: Dosis, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+
+.font-preview-title {
+  font-family: "Beleren Bold", Cinzel, Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.font-preview-lede {
+  color: #4a4036;
+  line-height: 1.5;
+  margin: 0 0 1.75rem;
+}
+
+.font-preview-cuts,
+.font-preview-compare {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.font-preview-compare {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 52rem) {
+  .font-preview-compare {
+    grid-template-columns: 1fr;
+  }
+}
+
+.font-preview-chapter {
+  font-size: 2.2em;
+  margin-bottom: 0.35rem;
+  text-align: center;
+}
+
+.font-preview-cuts article,
+.font-preview-compare article {
+  background: #fffcf6;
+  border: 1px solid #d5c9b9;
+  border-radius: 9px;
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.font-preview h2 {
+  font-family: var(--display-font);
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin: 0 0 1rem;
+}
+
+.font-preview-cuts h2,
+.font-preview-compare h3 {
+  color: #765838;
+  font-family: Dosis, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.65rem;
+  text-transform: uppercase;
+}
+
+.font-preview-cuts p {
+  font-size: 1.35rem;
+  line-height: 1.35;
+  margin: 0 0 0.55rem;
+}
+
+.font-preview-nav {
+  margin: 0 0 1rem;
+}
+
+.font-preview-nav a {
+  cursor: default;
+}
+
+.font-preview-auth-heading {
+  font-family: Cinzel, Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+.header_links.font-preview-nav-legacy {
+  font-family: Cinzel, Georgia, serif;
+  font-weight: 500;
+}
+
+.font-preview-list-index {
+  font-family: Antic, serif;
+  font-size: 1.6rem;
+  margin: 0 0 0.75rem;
+}
+
+.font-preview-list-name {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.font-preview-item {
+  font-size: 1.3em;
+  margin: 0;
+}
+
